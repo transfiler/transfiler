@@ -8,10 +8,10 @@ import java.io.IOException;
 
 
 public class Converter {
-	//UWAGA dodaæ nazwe pliku na pocz¹tek ci¹gu bitów jako ci¹g bitów w stringu najlepiej split po \\ ostatni elem i conversja na bity
-	/// œcie¿ki
+	//UWAGA dodaÃ¦ nazwe pliku na poczÂ¹tek ciÂ¹gu bitÃ³w jako ciÂ¹g bitÃ³w w stringu najlepiej split po \\ ostatni elem i conversja na bity
+	/// Å“cieÂ¿ki
 	  static File FILE_NAME = new File("C:\\Users\\MiniAtom\\Desktop\\BinaryReadWriteJavaProject\\test2.mp3");
-	  static File OUTPUT_FILE_NAME = new File("C:\\Users\\MiniAtom\\Desktop\\BinaryReadWriteJavaProject\\testOut2.mp3");//dzia³a dla 1-25mb plikach dalej koniec pamiêci dla stringbuildera
+	  static File OUTPUT_FILE_NAME = new File("C:\\Users\\MiniAtom\\Desktop\\BinaryReadWriteJavaProject\\testOut2.mp3");//dziaÂ³a dla 1-25mb plikach dalej koniec pamiÃªci dla stringbuildera
 	  static Converter binary = new Converter();
 	  //tester
 	  //public static void main(String[] args) throws IOException {
@@ -20,36 +20,27 @@ public class Converter {
 	 // public static void main(String[] args) throws IOException {
 	//	  System.out.printf("wynik: %s",GetBinaryFileName(FILE_NAME));
 	  //}
-  public static String GetBinaryFileName(File path)//wejœcie nazwa pliku wyjœcie nazwaa pliku w postaci 8 bitów oddzielonych spacj¹ w stringu
+  public static String GetBinaryFileExtension(File path)//wejÅ“cie cieÅ¼ka do pliku wyjÅ“cie rozszerzenie pliku w postaci 8 bitÃ³w nie oddzielonych spacjÂ¹ w stringu
 	{
 		//-------------
 		
-		String[] Path = path.getAbsolutePath().split("\\\\");
+		String[] Path = path.getAbsolutePath().split("/");
 		int lenght = Path.length;
 		String temp = Path[lenght-1];
 		String[] Extensions = temp.split("\\.");
 		byte[] bytes1 = Extensions[Extensions.length-1].getBytes();
 		String BinaryFileName = "";
 		for (int i = 0; i < bytes1.length; i++) {
-		    String s2 = String.format("%8s", Integer.toBinaryString(bytes1[i] & 0xFF)).replace(' ', '0');//zamienia bajty na ci¹g bitów w stringu
+		    String s2 = String.format("%8s", Integer.toBinaryString(bytes1[i] & 0xFF)).replace(' ', '0');//zamienia bajty na ciÂ¹g bitÃ³w w stringu
 		//System.out.println(s2);
-		    if(i==bytes1.length-1)//dodajemy spacje miedzy oktetami na koncu nie ma spacji
+		    if(i==bytes1.length-1)//nie dodajemy spacje miedzy oktetami na koncu nie ma spacji
 			BinaryFileName += s2;
-		    else BinaryFileName += s2+"";
+		    else BinaryFileName += s2+"";//nie dodaje spacji
 		}
-		/*String s2 = "";   
-		char nextChar;
-		String[] Test = BinaryFileName.split(" ");
-		for(int i = 0; i < Test.length; i++) //this is a little tricky.  we want [0, 7], [9, 16], etc
-		{
-		     nextChar = (char)Integer.parseInt(Test[i], 2);
-		     s2 += nextChar;
-		}
-		System.out.printf("Wynik2: %s",s2);*/
-		//------------------------
+
 		return BinaryFileName;
 	}
-	public static String Convert2Binary(File file) throws IOException//na wejœciu jest œcie¿ka najlepiej z \\. na wyjsciu jest ci¹g bitów w stringu
+	public static String Convert2Binary(File file) throws IOException//na wejÅ“ciu jest Å“cieÂ¿ka najlepiej z \\. na wyjsciu jest ciÂ¹g bitÃ³w w stringu
 	{ 
 
 	    byte[] bytes = binary.readBinaryFile(file);
@@ -64,7 +55,8 @@ public class Converter {
 	    		BitString.append(s);
 	    		counter = 0;
 	    	}*/
-	    	if (i == (len/4)) {
+	    	// DO PROGRESS BARU CZY COS W PRZYSZLOSCI
+	    	/*if (i == (len/4)) {
 				System.out.println("wczytanie 25%");
 			}
 	    	else if(i == (len/2))
@@ -78,14 +70,14 @@ public class Converter {
 	    	else if(i == (len-1))
 	    	{
 	    		System.out.println("wczytanie 100%");
-	    	}
+	    	}*/
 	    }
-	    String s1 =BitString.toString();
+	    String bits =BitString.toString();
 	   // String s2 = s.replaceAll("c", " ");
-	    return s1;
+	    return bits;
 	  }
 	
-	public static void Convert2file(String bits) throws IOException// na wejœciu ci¹g bitów w stringu po 8 bitów oddzielony spacjami na koncu nie ma spacji. wyjscie brak zapis do pliku.
+	public static void Convert2file(String bits) throws IOException// na wejÅ“ciu ciÂ¹g bitÃ³w w stringu po 8 bitÃ³w oddzielony spacjami na koncu nie ma spacji. wyjscie brak zapis do pliku.
 	{
 		int arrayLength = (int) Math.ceil(((bits.length() / (double) 8)));
         String[] bitsArray = new String[arrayLength];
@@ -106,10 +98,10 @@ public class Converter {
 		
 		for (int j = 0; j < array.length; j++) {
 			
-	    	b = Integer.parseInt(bitsArray[j], 2);//z powrotem ## zamiana uwaga 8bitów w stringu na byte[] i zapis do pliku
+	    	b = Integer.parseInt(bitsArray[j], 2);//z powrotem ## zamiana uwaga 8bitÃ³w w stringu na byte[] i zapis do pliku
 	    	array[j] =  (byte) b;
 	    	
-	    	
+	    	/*
 	    	if (j == (array.length/4)) {
 				System.out.println("zapis 25%");
 			}
@@ -125,7 +117,7 @@ public class Converter {
 	    	{
 	    		System.out.println("zapis 100%");
 	    	}
-		}
+		}*/
 		
     	binary.writeBinaryFile(array, OUTPUT_FILE_NAME);
 		
