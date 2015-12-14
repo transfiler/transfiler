@@ -79,10 +79,14 @@ public class Converter {
 	
 	public static void Convert2file(String bits) throws IOException// na wejœciu ci¹g bitów w stringu po 8 bitów oddzielony spacjami na koncu nie ma spacji. wyjscie brak zapis do pliku.
 	{
-		int arrayLength = (int) Math.ceil(((bits.length() / (double) 8)));
+	String extension = "";
+	extension = bits.substring(24);//3 * 8
+	//TO DO 3 pierwsze bity odczytac jako rozszerzenie do pliku wyjsciowego
+	int arrayLength = (int) Math.ceil(((bits.length() / (double) 8)));
         String[] bitsArray = new String[arrayLength];
         int k = 0;
         int lastIndex = bitsArray.length - 1;
+        
         for (int i = 0; i < lastIndex; i++) {
         	bitsArray[i] = bits.substring(k, k + 8);
             k += 8;
