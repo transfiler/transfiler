@@ -9,11 +9,11 @@ import android.os.Bundle;
 
 public class PlaySound extends Activity {
 
-    String message = "10111100100101101011110010010110";
-    double frequencies[] = new double[30];
+    String message = "101010101010101010101010101010101010";
+    double frequencies[] = new double[message.length() + 30];
 
 
-    private final int duration = 3;
+    private final int duration = 2 + message.length() / 10;
     private final int sampleRate = 10000;
     private final int numSamples = duration * sampleRate;
     private final double sample[] = new double[numSamples];
@@ -32,12 +32,18 @@ public class PlaySound extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        for (int i = 0; i < 30; i++) {
-            if (message.charAt(i) == '1') {
-                frequencies[i] = 1000;
+        for (int i = 0; i < 10; i++) {
+            frequencies[i] = 150;
+        }
+        for (int i = 10; i < 10 + message.length(); i++) {
+            if (message.charAt(i - 10) == '1') {
+                frequencies[i] = 2000;
             } else {
-                frequencies[i] = 500;
+                frequencies[i] = 1000;
             }
+        }
+        for (int i = 10 + message.length(); i < frequencies.length; i++) {
+            frequencies[i] = 150;
         }
 
         // Use a new tread as this can take a while
