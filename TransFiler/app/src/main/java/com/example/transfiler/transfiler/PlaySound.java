@@ -9,17 +9,22 @@ import android.os.Bundle;
 
 public class PlaySound extends Activity {
 
-    String message = "101010101010101010101010101010101010";
-    double frequencies[] = new double[message.length() + 30];
+    String message = "1101011E";
+    //double frequencies[] = new double[message.length() + 30];
+    double frequencies[];
 
 
-    private final int duration = 2 + message.length() / 10;
+    //private final int duration = 2 + message.length() / 10;
+    private int duration;
     private final int sampleRate = 10000;
-    private final int numSamples = duration * sampleRate;
-    private final double sample[] = new double[numSamples];
+    //private final int numSamples = duration * sampleRate;
+    private int numSamples;
+    //private final double sample[] = new double[numSamples];
+    private double sample[];
     private double freqOfTone = 440; // hz
 
-    private final byte generatedSnd[] = new byte[2 * numSamples];
+    //private final byte generatedSnd[] = new byte[2 * numSamples];
+    private byte generatedSnd[];
 
     Handler handler = new Handler();
 
@@ -27,6 +32,20 @@ public class PlaySound extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_sound);
+
+        Bundle extras = getIntent().getExtras();
+
+        if( extras != null )
+        {
+            message = extras.getString( "message" );
+        }
+
+        frequencies = new double[message.length() + 30];
+
+        duration = 2 + message.length() / 10;
+        numSamples = duration * sampleRate;
+        sample = new double[numSamples];
+        generatedSnd = new byte[2 * numSamples];
     }
 
     @Override
@@ -37,9 +56,13 @@ public class PlaySound extends Activity {
         }
         for (int i = 10; i < 10 + message.length(); i++) {
             if (message.charAt(i - 10) == '1') {
-                frequencies[i] = 2000;
-            } else {
+                frequencies[i] = 1500;
+            } else if( message.charAt( i - 10 ) == '0' ){
                 frequencies[i] = 1000;
+            }
+            else
+            {
+                frequencies[ i ] = 750;
             }
         }
         for (int i = 10 + message.length(); i < frequencies.length; i++) {
