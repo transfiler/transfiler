@@ -3,17 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PlaySound">
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:id="@+id/linearLayout">
-    <TextView
-        android:id="@+id/message_view"
-        android:layout_width="349dp"
-        android:layout_height="73dp"
-        android:textSize="24dp" />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
+        <TextView
+            android:id="@+id/message_view"
+            android:layout_width="349dp"
+            android:layout_height="73dp"
+            android:textSize="24dp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/frequency_view"
@@ -30,8 +30,23 @@
         android:layout_height="150dp"
         android:text="STOP"
         android:id="@+id/stop_record"
+        android:enabled="false"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="58dp"
         android:onClick="stopRecording" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save File"
+        android:enabled="false"
+        android:id="@+id/save_file"
+        android:layout_above="@+id/stop_record"
+        android:layout_alignRight="@+id/stop_record"
+        android:layout_alignEnd="@+id/stop_record"
+        android:layout_marginBottom="33dp"
+        android:layout_alignLeft="@+id/stop_record"
+        android:layout_alignStart="@+id/stop_record"
+        android:onClick="onClickSave" />
 </RelativeLayout>

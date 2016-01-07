@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="#ffffff"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="programowanie.zespolowe.tfbeta.MainActivity">
+
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pickButton"
+        android:src="@drawable/dyskietka"
+        android:scaleType="fitCenter"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:onClick="pickFile"
+
+   />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listenButton"
+        android:layout_below="@+id/pickButton"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/nutka"
+        android:scaleType="fitCenter"
+        android:onClick="onClickReceive"
+
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nuta"
+        android:src="@drawable/nuta"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listening"
+        android:layout_below="@+id/nuta"
+        android:layout_alignStart="@+id/nuta"
+        android:layout_alignLeft="@+id/nuta"
+        android:src="@drawable/listening"
+        android:layout_marginRight="15dp"
+        android:visibility="gone"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/backListen"
+        android:layout_below="@+id/listening"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/back"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        android:onClick="backListening"
+        />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/backSend"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/back"
+        android:scaleType="fitCenter"
+        android:onClick="backSending"
+        android:visibility="gone"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sendButton"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/send"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        android:onClick="onClickSend" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:text="FILE NAME"
+        android:id="@+id/fileName"
+        android:layout_centerHorizontal="true"
+        android:textSize="40dp"
+        android:layout_marginTop="50dp"
+        android:visibility="gone"
+        />
+
+
+</RelativeLayout>

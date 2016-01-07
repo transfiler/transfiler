@@ -1,7 +1,10 @@
-package com.example.transfiler.transfiler;
+package programowanie.zespolowe.tfbeta;
+
 
 import android.app.Activity;
+import android.content.ContextWrapper;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -9,9 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.transfiler.transfiler.R;
+import java.io.File;
+import java.io.IOException;
 
-import java.util.Calendar;
 
 public class RecordSound extends Activity
 {
@@ -33,7 +36,9 @@ public class RecordSound extends Activity
     public static TextView fv;
 
     // przycisk stop
-    private Button stopButton;
+    public static Button stopButton;
+
+    public static Button saveButton;
 
     protected Handler handler;
 
@@ -42,12 +47,13 @@ public class RecordSound extends Activity
     public void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_record_sound );
+        setContentView(R.layout.activity_record_sound);
 
         tv = ( TextView ) findViewById( R.id.message_view );
         fv = ( TextView ) findViewById( R.id.frequency_view );
 
         stopButton = ( Button ) findViewById( R.id.stop_record );
+        saveButton = ( Button ) findViewById( R.id.save_file );
 
         rt = new RecorderThread();
         rt.start();
@@ -89,20 +95,33 @@ public class RecordSound extends Activity
                 }
             }
 
+            if (rt.isDone) {
+                saveButton.setEnabled(true);
+                stopButton.setEnabled(false);
+            }
+
             handler.post(task);
 
 
         }
     };
 
-    public void stopRecord( View view )
-    {
-        rt.recording = false;
-    }
 
     public void stopRecording( View view )
     {
         rt.recording = false;
         rt.stopRecording();
     }
+
+    public void onClickSave( View view ) {
+        saveButton.setEnabled(false);
+        Log.d("AAAA", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString());
+        File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "a.txt");
+        try {
+            byte[] byteArray = Converter.Convert2file(rt.message);
+            Converter.writeBinaryFile(byteArray, path);
+        } catch( IOException e) {}
+
+    }
+
 }

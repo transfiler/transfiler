@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TFbeta</string>
+    <string name="send_button_text">Send File</string>
+    <string name="receive_button_text">Receive File</string>
+    <string name="pickFile_button_text">Choose File</string>
+    <string name="startBroadcast_button_text">Start Broadcasting</string>
+</resources>

@@ -1,4 +1,6 @@
-package com.example.transfiler.transfiler;
+package programowanie.zespolowe.tfbeta;
+
+
 
 import android.media.AudioRecord;
 import android.media.MediaRecorder.AudioSource;
@@ -83,8 +85,9 @@ class RecorderThread extends Thread
             recording = true;
 
             //while( recorder.getState() != android.media.AudioRecord.STATE_INITIALIZED );
-
+            //RecordSound.stopButton.setEnabled(true);
             recorder.startRecording();
+
 
             recorder.read( data, 0, bufferSize );
 
@@ -197,7 +200,7 @@ class RecorderThread extends Thread
                     message += '0';
                     break;
                 case KEY_FREQ:
-                    message += 'E';
+                    //message += 'E';
                     isDone = true;
                     break;
                 default:
