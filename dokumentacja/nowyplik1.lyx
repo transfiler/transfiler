@@ -1,0 +1,1741 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Projekt TransFiler
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+Paweł Lewko 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+linebreak
+\end_layout
+
+\end_inset
+
+ Tomasz Bartkowski 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+linebreak
+\end_layout
+
+\end_inset
+
+ Tomasz Bigorowski 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+linebreak
+\end_layout
+
+\end_inset
+
+ Michał Kordel 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+linebreak
+\end_layout
+
+\end_inset
+
+ Jan Tatarynowicz 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagebreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+Projekt TransFiler
+\end_layout
+
+\begin_layout Section
+Wstęp
+\end_layout
+
+\begin_layout Standard
+W ramach projektu zostanie utworzony system o nazwie kodowej 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{TransFiler}
+\end_layout
+
+\end_inset
+
+.
+ System 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{TransFiler}
+\end_layout
+
+\end_inset
+
+ będzie aplikacją mobilną na urządzenia z systemem mobilnym 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Android}
+\end_layout
+
+\end_inset
+
+, służącą do przesyłania plików za pomocą dźwięku.
+\end_layout
+
+\begin_layout Section
+Zakres
+\end_layout
+
+\begin_layout Standard
+Praca swoim zakresem obejmuje aplikacje mobilne służące komunikacji bezprzewodow
+ej.
+ W przeciwieństwie do typowych rozwiązań tego typu, używających jako medium
+ transmisyjnego fali elektromagnetycznej, projekt 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{TransFiler}
+\end_layout
+
+\end_inset
+
+ zakłada komunikację przy użyciu fali mechanicznej, a konkretnie dźwięku
+ w zakresie słyszalnym.
+ Aplikacja pozwoli ominąć problemy niezgodności sprzętowych i nie zgodności
+ intefejsów, które często występują przy komunikacji radiowej.
+ Zostanie dobrany odpowiedni zakres częstotliwości przesyłanego dźwięku,
+ aby zapewnić możliwie jak największą prędkość wysyłania przy jak największej
+ niezawodności.
+ Poprawność każdej transmisji będzie weryfikowana kodem 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{CRC}
+\end_layout
+
+\end_inset
+
+.
+ Zostanie także dobrana odpowiednia metoda modulacji dźwięku.
+ Aby zapewnić, że dane zostały przesłane bezbłędnie zostaną użyte odpowiednie
+ algorytmy sum kontrolnych.
+ System będzie posiadał Graficzny Interfejs Użytkownika na platformie 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Android}
+\end_layout
+
+\end_inset
+
+.
+ Aplikacja zostanie napisana w języku 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Java}
+\end_layout
+
+\end_inset
+
+ przy wykorzystaniu biblioteki 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Beads}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Cel
+\end_layout
+
+\begin_layout Standard
+Celem pracy jest zaprojektowanie i oprogramowanie aplikacji mobilnej o następują
+cych założeniach funkcjonalnych:
+\end_layout
+
+\begin_layout Itemize
+wybór dowolnego pliku do wysłania,
+\end_layout
+
+\begin_layout Itemize
+odpowiednie przetworzenie bitów i modulacja fali dźwiękowej tymi bitami,
+\end_layout
+
+\begin_layout Itemize
+odtworzenie fali dźwiękowej,
+\end_layout
+
+\begin_layout Itemize
+nagranie fali dźwiękowej,
+\end_layout
+
+\begin_layout Itemize
+demodulacja fali dźwiękowej i przetworzenie bitów,
+\end_layout
+
+\begin_layout Itemize
+weryfikacja poprawności przesyłanych danych,
+\end_layout
+
+\begin_layout Itemize
+zapisanie pliku w pamięci.
+\end_layout
+
+\begin_layout Section
+Przegląd podobnych rozwiązań
+\end_layout
+
+\begin_layout Standard
+Obecnie na rynku istnieje wiele aplikacji służących bezprzewodowej komunikacji
+ pomiędzy urządzeniami mobilnymi.
+ Rozpatrzmy najpierw te których medium komunikacyjnym jest fala elektromagnetycz
+na:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Bluetooth File Transfer}
+\end_layout
+
+\end_inset
+
+ – aplikacja na system 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Android}
+\end_layout
+
+\end_inset
+
+ firmy 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Medieval Software}
+\end_layout
+
+\end_inset
+
+ używa technologii 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Bluetooth}
+\end_layout
+
+\end_inset
+
+.
+ Istotną zaletą tej aplikacji jest zgodność ze starszymi standardami 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Bluetooth}
+\end_layout
+
+\end_inset
+
+, używanych w czasie gdy wiodącym mobilnym systemem operacyjnym był Symbian
+ OS, dzięki temu możliwa jest komunikacja również z tymi urządzeniami.
+ Przebieg wysyłania pliku wygląda następująco: wybieramy plik do wysłania,
+ następnie skanujemy w poszukiwaniu urządzeń z aktywnym interfejsem 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Bluetooth}
+\end_layout
+
+\end_inset
+
+, a gdy wybierzemy urządzenie do którego chcemy wysłać plik oczekujemy na
+ akceptację wysyłki.
+ Aplikacja posiada wbudowane szyfrowanie 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{AES}
+\end_layout
+
+\end_inset
+
+ (128, 192 i 256-bitowe).
+ Poprawność przesyłanych może zostać zweryfikowana przy użyciu sum kontrolnych
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{MD5}
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{CRC32}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Wifi File Transfer}
+\end_layout
+
+\end_inset
+
+ – stworzona przez firmę 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{smarterDroid}
+\end_layout
+
+\end_inset
+
+ aplikacja mobilna umożliwiająca przesyłanie plików korzystając z protokołu
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{WiFi}
+\end_layout
+
+\end_inset
+
+.
+ Zwykle nie wysyła ona danych bezpośrednio z jednego urządzenia na drugie,
+ lecz przez punkt dostępowy sieci – zalogowanie do tej samej sieci 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{WiFi}
+\end_layout
+
+\end_inset
+
+ jest wymagane.
+ Możliwe jest jednak uruchomienie w urządzeniu trybu 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Hotspot}
+\end_layout
+
+\end_inset
+
+, wówczas staje się ono punktem dostępowym i pliki mogą być przesyłane bezpośred
+nio.
+ Na urządzeniu z którego mają zostać wysłane uruchomiony zostaje serwer
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{HTTP}
+\end_layout
+
+\end_inset
+
+, widoczny tylko w obrębie lokalnej sieci.
+ Ma to istotną zaletę, mianowicie odbierający pliki nie musi instalować
+ aplikacji, wystarczy jedynie przeglądarka internetowa.
+ Ma to jednak również wadę ponieważ serwer pracuje na niestandardowym dla
+ protokołu 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{HTTP}
+\end_layout
+
+\end_inset
+
+ porcie 1234, a jak wiadomo w niektórych sieciach 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{WiFi}
+\end_layout
+
+\end_inset
+
+ niestandardowe porty są zablokowane.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{ShareCloud}
+\end_layout
+
+\end_inset
+
+ – rozwiązanie firmy 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{For2ww}
+\end_layout
+
+\end_inset
+
+, aplikacja umożliwiająca nie tylko przesyłanie plików ale również przechowywani
+e ich w chmurze.
+ Od użytkownika wysyłającego jak i odbierającego wymaga dostępu do Internetu,
+ co może być niekiedy utrudnieniem, jednak ma to tę zaletę, że pliki mogą
+ być wysyłane bez względu na dystans pomiędzy urządzeniami.
+ Dodatkowo odbieranie nie musi zachodzić w chwili wysyłania, ponieważ dane
+ w mogą być przechowywane w chmurzę przez dowolny czas.
+\end_layout
+
+\begin_layout Standard
+Jeśli chodzi o przesyłanie plików przy użyciu fali mechanicznej, to istnieje
+ aplikacja 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Chirp}
+\end_layout
+
+\end_inset
+
+ (stworzona przez firmę 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Animal Systems}
+\end_layout
+
+\end_inset
+
+) która jest najbliższa koncepcji przesyłania plików przy pomocy dźwięku
+ i jest promowana jako taka właśnie aplikacja.
+ Nie jest to jednak do końca prawdą, ponieważ wymaga ona do działania dostępu
+ do Internetu, ponieważ w rzeczywistości dane przesyłane są przez Internet
+ (plik jest wysyłany do serwera, a następnie pobierany z serwera przez urządzeni
+e odbierające).
+ Dźwiękiem przesyłany jest jedynie identyfikator pliku potrzebny do pobrania
+ pliku z serwera.
+\end_layout
+
+\begin_layout Standard
+Aplikacja 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{TransFiler}
+\end_layout
+
+\end_inset
+
+ będzie zatem jedyną aplikacją mobilną umożliwiającą przesyłanie danych
+ jedynie przy użyciu fali mechanicznej.
+\end_layout
+
+\begin_layout Section
+Analiza problemu
+\end_layout
+
+\begin_layout Standard
+Aplikacja 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{TransFiler}
+\end_layout
+
+\end_inset
+
+ służy do przesyłania plików za pomocą dźwięku.
+ Używa zatem fali mechanicznej, a nie jak większość tego typu aplikacji
+ - fali elektromagnetycznej.
+ Istnieje aplikacja mobilna 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Chirp}
+\end_layout
+
+\end_inset
+
+, która co prawda używa dźwięku do przesłania plików, jednak nie może działać
+ bez dostępu do Internetu - dźwiękiem przesyłane są jedynie dane potrzebne
+ do pobrania pliku z serwera.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{TransFiler}
+\end_layout
+
+\end_inset
+
+ nie potrzebuje dostępu do Internetu, do przesłania pliku wystarczy, że
+ urządzenia będą posiadały głośnik i mikrofon.
+ 
+\end_layout
+
+\begin_layout Standard
+Aplikację po uruchomieniu będzie można przestawić w jeden z dwóch trybów
+ - tryb nadawania (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Player}
+\end_layout
+
+\end_inset
+
+) i tryb nasłuchiwania (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Recorder}
+\end_layout
+
+\end_inset
+
+).
+ W trybie nadawania możemy wybrać plik z pamięci urządzenia i rozpocząć
+ wysyłanie.
+ Aby plik mógł zostać przesłany najpierw musi zostać prrzetworzony na ciąg
+ bitów (komponent 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{File Converter}
+\end_layout
+
+\end_inset
+
+), a następnie zmodulowany.
+ Do modulacji posłuży biblioteka dźwiękowa 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Beads}
+\end_layout
+
+\end_inset
+
+ napisana w języku Java i wydana na licencji 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Open Source}
+\end_layout
+
+\end_inset
+
+.
+ Użytą metodą modulacji będzie 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Frequency Shift Keying}
+\end_layout
+
+\end_inset
+
+.
+ Jest to modulacja częstliwościowa, generuje ona sygnał sinusoidalny o mniejszej
+ częstotliwości dla wartości 0 i sygnał o większej częstotliwości dla wartości
+ 1.
+ Ma ona tą przewagę nad modulacją amplitudową że niewielkie zmiany amplitudy,
+ spowodowane np.
+ zmianą dystansu między urządzeniami nie będą powodowały błędów transmisji.
+ Dodatkowo jest stosunkowo prosta w implementacji.
+\end_layout
+
+\begin_layout Standard
+Planowany kod modulacyjny: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+[ 
+\backslash
+alpha(x_n)=
+\backslash
+left
+\backslash
+{ 
+\backslash
+begin{array}{ll} A_0sin500t 
+\backslash
+qquad
+\backslash
+enspace dla 
+\backslash
+qquad x_n  = 0
+\backslash
+
+\backslash
+ A_0sin1000t 
+\backslash
+qquad dla 
+\backslash
+qquad x_n  = 1 
+\backslash
+end{array} 
+\backslash
+right.
+ 
+\backslash
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wartości częstotliwości mogą się zmienić , jeśli w czasie testów okaże się
+ że częstotliwości 500Hz oraz 1000Hz wcale nie są najlepsze.
+ Z twierdzenia Shannona-Hartleya wynika, że zwiększając częstotliwość będzie
+ można uzyskać większą przepustowość, dlatego zostaną przetestowane w szczególno
+ści wyższe częstotliwości.
+ W przypadku gdy zajdzie taka potrzeba, może zostać zaimplementowane dopasowywan
+ie częstotliwości w trakcie działania aplikacji (taka funkcja może być przydatna
+ w sytuacji gdy warunki zewnętrzne do korzystania z danej częstotliwości
+ będą uniemożliwiały poprawną transmisję).
+ Dodatkowo zostaną użyte dodatkowe częstotliwości do ramkowania oraz do
+ zaznaczenia końca transmisji.
+ 
+\end_layout
+
+\begin_layout Standard
+Jeśli cała komunikacja będzie miała poprawny przebieg to fala dźwiękowa
+ na urządzeniu nasłuchującym zostanie poddana demodulacji i po zamianie
+ ciągu bitów na obiekt typu 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{File}
+\end_layout
+
+\end_inset
+
+ da nam możliwość zapisania pliku w pamięci.
+ Dzięki zastosowani Szybkiej Transformaty Fouriera, która jest zaimplementowana
+ w bibliotece 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Beads}
+\end_layout
+
+\end_inset
+
+, demodulacja fali dźwiękowej będzie wydajna.
+ Jeśli w transmisji nastąpią przekłamania bitów, to urządzenie nasłuchujące
+ wykryje ten fakt i zostanie wyświetlony odpowiedni komunikat.
+ Do sprawdzania poprawności danych zostanie użyty kod 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{CRC}
+\end_layout
+
+\end_inset
+
+ (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Cyclic Redundancy Check}
+\end_layout
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Section
+Projekt systemu
+\end_layout
+
+\begin_layout Subsection
+Grupy użytkowników i założenia
+\end_layout
+
+\begin_layout Standard
+Program działa na urządzeniach z systemem 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Android}
+\end_layout
+
+\end_inset
+
+ z działającym mikrofonem i głośnikami.
+ Użytkownikiem nazwiemy osobę która posiada program z zainstalowanym programem
+ na urządzeniu android.
+ Użytkownicy mogą przesyłać dane między swoimi urzadzeniami.
+ Program nie posiada trybów dostępów, każdy użytkownik ma pełną funkcjonalność.
+ Program posiada interfejs użytkownika(GUI) i działa na zasadzie użytkownik
+ - użytkownik.
+\end_layout
+
+\begin_layout Subsection
+Diagram przypadków użycia
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Users/mk/Desktop/12228092_848604035258972_450788074_o.jpg
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Rys 1: Diagram przypadków użycia
+\end_layout
+
+\begin_layout Subsubsection
+Scenariusze przypadków użycia
+\end_layout
+
+\begin_layout Standard
+Przepływ zdarzeń między użytkownikiem a programem dla przypadku użycia „Wyślij
+ Plik”:
+\end_layout
+
+\begin_layout Enumerate
+Program wyświetla dostępne opcje na ekranie, użytkownik wybiera opcję wyślij
+ plik poprzez kliknięcie palcem w pole/guzik o nazwie wyślij plik.
+\end_layout
+
+\begin_layout Enumerate
+Program wyświetla menażer plików dla użytkownika, użytkownik wybiera ścieżkę
+ do pliku który chce wysłać lub wpisuje ją z klawiatury systemowej.
+\end_layout
+
+\begin_layout Enumerate
+Program akceptuje ścieżkę do pliku następnie wyświetla pole/guzik start,
+ użytkownik klika palcem start aby wysłać plik.
+\end_layout
+
+\begin_layout Standard
+Przepływ zdarzeń między użytkownikiem a programem dla przypadku użycia „Odbierz
+ Plik”:
+\end_layout
+
+\begin_layout Enumerate
+Program wyświetla dostępne opcje na ekranie, użytkownik wybiera opcję Odbierz
+ plik poprzez kliknięcie palcem w pole/guzik o nazwie Odbierz plik.
+\end_layout
+
+\begin_layout Enumerate
+Program wyświetla menażer plików dla użytkownika, użytkownik wybiera ścieżkę
+ do folderu w którym chce zapisać plik lub wpisuje ją z klawiatury systemowej.
+\end_layout
+
+\begin_layout Enumerate
+Program akceptuje ścieżkę do pliku następnie wyświetla pole/guzik start,
+ użytkownik klika palcem start aby odebrać plik.
+\end_layout
+
+\begin_layout Subsection
+Diagram komponentów
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Users/mk/Desktop/asd.png
+	scale 34
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Rys 2: Diagram komponentów
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+linebreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Player}
+\end_layout
+
+\end_inset
+
+ - moduł odpowiadający za odtwarzanie dźwięku zapisanego przez modulator
+ 
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Recorder}
+\end_layout
+
+\end_inset
+
+ - moduł odpowiadający za rejestrowanie dźwięku z otoczenia 
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Modulator}
+\end_layout
+
+\end_inset
+
+ - moduluje dźwiek w danym zakresie częstotliwości za pomocą 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Beads Library}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Demodulator}
+\end_layout
+
+\end_inset
+
+ - przekształca zarejestrowany dźwięk nagrany za pomocą 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Recordera}
+\end_layout
+
+\end_inset
+
+ do postaci binarnej
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Correctness Checker}
+\end_layout
+
+\end_inset
+
+ - sprawdza błędy CRC
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{File Converter}
+\end_layout
+
+\end_inset
+
+ - konwertuje dowolny plik na postać binarną i na odwrót dodając kod 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{CRC}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Beads Library}
+\end_layout
+
+\end_inset
+
+ - biblioteka pozwalająca zapisywać dane binarne w postaci funkcji którą
+ łatwo odtworzyć w 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Player}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Android GUI}
+\end_layout
+
+\end_inset
+
+ - graficzny interfejs udostępniający w intuicyjny sposób wszystkie funkcjonalno
+ści systemu użytkownikowi telefonu z systemem 
+\end_layout
+
+\begin_layout Subsection
+Diagram aktywności
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Users/mk/Desktop/abc.jpg
+	scale 18
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Rys 3: Diagram aktywności.
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+linebreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na początku użytkownik dostaje możliwość wyboru plik.
+ Kiedy plik zostanie wybrany zostaje on przetworzony na ciąg bitów i zamieniony
+ na sygnał dźwiękowy.
+ Po tym następuje nadawanie sygnału.
+ W tym samym czasie drugie urządzenie odbiera sygnał dźwiękowy.
+ System zamienia sygnał na plik, po czym zostaje zapisany on w pamięci.
+\end_layout
+
+\begin_layout Subsection
+Diagram klas
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Users/mk/Desktop/abcaa.jpg
+	scale 37
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Rys 4: Diagram klas
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+linebreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Diagram sekwencji
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Users/mk/Downloads/12212480_981738768534395_1718937216_n.jpg
+	scale 37
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Rys 5: Diagram sekwencji dla aktora wysyłającego
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+linebreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Osoba wysyłająca dane wybierając plik wywołuje metodę 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{chooseFile()}
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Android GUI}
+\end_layout
+
+\end_inset
+
+ zwraca informację o powodzeniu lub niepowodzeniu operacji.
+ Następnie klikając odpowiedni przycisk używa metody 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{sendFile()}
+\end_layout
+
+\end_inset
+
+ klasy 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Android GUI}
+\end_layout
+
+\end_inset
+
+, która wywołuje metodę 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{giveFile()}
+\end_layout
+
+\end_inset
+
+ klasy 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Player}
+\end_layout
+
+\end_inset
+
+.
+ Obiekt klasy plik przekazywany jest do klasy 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{File Converter}
+\end_layout
+
+\end_inset
+
+, która zwraca ciąg bitów.
+ Następnie 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Player}
+\end_layout
+
+\end_inset
+
+ wywołuje metodę 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{getSignal()}
+\end_layout
+
+\end_inset
+
+ klasy 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Modulator}
+\end_layout
+
+\end_inset
+
+, która odwołując się do biblioteki 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Beads}
+\end_layout
+
+\end_inset
+
+ moduluje sygnał, a następnie dodaje kod 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{CRC}
+\end_layout
+
+\end_inset
+
+ i dodaje sygnał końca transmisji.
+ Sygnał właściwy, sygnał kodu 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{CRC}
+\end_layout
+
+\end_inset
+
+ i sygnał końca transmisji są połączone i mogą być zwrócone do obiektu 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Player}
+\end_layout
+
+\end_inset
+
+.
+ Następnie 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Player}
+\end_layout
+
+\end_inset
+
+ odtwarza sygnał w pętli aż do zakończenia, i zwraca obiektowi 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Android GUI}
+\end_layout
+
+\end_inset
+
+ informację o zakończeniu transmisji.
+\end_layout
+
+\begin_layout Subsection
+Diagram sekwencji dla modulatora
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Users/mk/Pictures/144953518433384 (1).jpg
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Rys.
+ 6: Diagram sekwencji dla aktora modulującego
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+linebreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Do modułu odpowiadającego za modulację dźwięku zostaje przekazany plik binarny.
+ Obiekt klasy 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Modulator}
+\end_layout
+
+\end_inset
+
+ tworzy nowy obiekt klasy 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Player}
+\end_layout
+
+\end_inset
+
+, który z obiektu 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Modulator}
+\end_layout
+
+\end_inset
+
+ pobiera odpowiednie częstotliwości odtwarzania, a następnie przy użyciu
+ metody 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{generateSamples()}
+\end_layout
+
+\end_inset
+
+ generuje próbki dźwięku które później zostaną odtworzone.
+ Kiedy mamy wszystkie próbki zostaną wygenerowane dźwięk zostaje odtwarzany
+ metodą 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{playSound()}
+\end_layout
+
+\end_inset
+
+ klasy 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Player}
+\end_layout
+
+\end_inset
+
+ .
+\end_layout
+
+\end_body
+\end_document
