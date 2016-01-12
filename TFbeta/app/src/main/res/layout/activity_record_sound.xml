@@ -30,7 +30,7 @@
         android:layout_height="150dp"
         android:text="STOP"
         android:id="@+id/stop_record"
-        android:enabled="false"
+        android:enabled="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="58dp"

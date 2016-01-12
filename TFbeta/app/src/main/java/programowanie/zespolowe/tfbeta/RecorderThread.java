@@ -17,13 +17,10 @@ class RecorderThread extends Thread
     // tryb kodowania
     public static final int ENCODING = AudioFormat.ENCODING_PCM_16BIT;
 
-    // 'sterowanie' nagrywaniem
-    public boolean recording;
-
     public long timePassed;
 
     // zmienna przechowujaca ostatnio zarejestrowana czestotliwosc
-    public int frequency;
+    private int frequency;
 
     private AudioRecord recorder = null;
 
@@ -48,16 +45,15 @@ class RecorderThread extends Thread
     private int lastFrequency = 0;
     private int currentTestSample = 0;
 
-    public boolean reading = false;
+    private boolean done = false;
 
-    public boolean isDone = false;
-
-    public String message = "";
+    private String data = "";
 
     // ##############################################
 
     public RecorderThread()
     {
+        done = false;
     }
 
     @Override
@@ -82,16 +78,13 @@ class RecorderThread extends Thread
 
             data = new short[ bufferSize ];
 
-            recording = true;
-
             //while( recorder.getState() != android.media.AudioRecord.STATE_INITIALIZED );
             //RecordSound.stopButton.setEnabled(true);
             recorder.startRecording();
 
-
             recorder.read( data, 0, bufferSize );
 
-            while( recording )
+            while( !done )
             {
                 long startTime = System.currentTimeMillis();
                 // sprawdzanie, czy nagrywanie zainicjowane
@@ -121,12 +114,6 @@ class RecorderThread extends Thread
                             frequency = SAMPLE_RATE * zeroCrossings / samplesFrame / 2;
 
                             handleFrequency();
-
-                            if( isDone )
-                            {
-                                recording = false;
-                                break;
-                            }
                         }
                     }
                 }
@@ -139,7 +126,6 @@ class RecorderThread extends Thread
 
             recorder.release();
             recorder = null;
-
         }
     }
 
@@ -194,14 +180,14 @@ class RecorderThread extends Thread
             switch( lastFrequency )
             {
                 case HIGHER_PITCH:
-                    message += '1';
+                    data += '1';
                     break;
                 case LOWER_PITCH:
-                    message += '0';
+                    data += '0';
                     break;
                 case KEY_FREQ:
                     //message += 'E';
-                    isDone = true;
+                    done = true;
                     break;
                 default:
                     break;
@@ -211,12 +197,24 @@ class RecorderThread extends Thread
         }
     }
 
+    public int getFrequency()
+    {
+        return frequency;
+    }
+
+    public String getData()
+    {
+        return data;
+    }
+
+    public boolean isDone()
+    {
+        return done;
+    }
+
     public void stopRecording()
     {
-        if( recorder.getState() == android.media.AudioRecord.RECORDSTATE_RECORDING ) recorder.stop();
-
-        recorder.release();
-        //recorder = null;
+        done = true;
     }
 
     // czy liczba w zakresie +- szukanej czestotliwosci

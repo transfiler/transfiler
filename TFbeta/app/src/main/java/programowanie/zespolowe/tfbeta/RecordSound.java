@@ -46,7 +46,7 @@ public class RecordSound extends Activity
     @Override
     public void onCreate( Bundle savedInstanceState )
     {
-        super.onCreate( savedInstanceState );
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record_sound);
 
         tv = ( TextView ) findViewById( R.id.message_view );
@@ -55,14 +55,30 @@ public class RecordSound extends Activity
         stopButton = ( Button ) findViewById( R.id.stop_record );
         saveButton = ( Button ) findViewById( R.id.save_file );
 
-        rt = new RecorderThread();
-        rt.start();
-
         handler = new Handler();
 
         handler.post( task );
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        stopButton.setEnabled( true );
+        saveButton.setEnabled( false );
+
+        rt = new RecorderThread();
+        rt.start();
+    }
+
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+
+        rt.stopRecording();
+    }
 
     // aktualizowanie pola tekstowego
     private Runnable task = new Runnable()
@@ -75,10 +91,10 @@ public class RecordSound extends Activity
 
             //long time = rt.timePassed;
             //tv.setText( Integer.toString( ( int ) time ) );
-            int freq = rt.frequency;
+            int freq = rt.getFrequency();
             fv.setText( Integer.toString( freq ) );
-            String msg = rt.message;
-            tv.setText( msg );
+            String data = rt.getData();
+            tv.setText( data );
 
             // ile czasu minelo w ms
             long timePassed = System.currentTimeMillis() - startTime;
@@ -95,7 +111,7 @@ public class RecordSound extends Activity
                 }
             }
 
-            if (rt.isDone) {
+            if (rt.isDone()) {
                 saveButton.setEnabled(true);
                 stopButton.setEnabled(false);
             }
@@ -106,10 +122,8 @@ public class RecordSound extends Activity
         }
     };
 
-
     public void stopRecording( View view )
     {
-        rt.recording = false;
         rt.stopRecording();
     }
 
@@ -118,7 +132,7 @@ public class RecordSound extends Activity
         Log.d("AAAA", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString());
         File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "a.txt");
         try {
-            byte[] byteArray = Converter.Convert2file(rt.message);
+            byte[] byteArray = Converter.Convert2file(rt.getData());
             Converter.writeBinaryFile(byteArray, path);
         } catch( IOException e) {}
 
