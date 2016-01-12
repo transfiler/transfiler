@@ -87,14 +87,7 @@ public class RecordSound extends Activity
         {
             startTime = System.currentTimeMillis();
 
-
-
-            //long time = rt.timePassed;
-            //tv.setText( Integer.toString( ( int ) time ) );
-            int freq = rt.getFrequency();
-            fv.setText( Integer.toString( freq ) );
-            String data = rt.getData();
-            tv.setText( data );
+            updateGUI( rt.getFrequency(), rt.getData() );
 
             // ile czasu minelo w ms
             long timePassed = System.currentTimeMillis() - startTime;
@@ -112,8 +105,7 @@ public class RecordSound extends Activity
             }
 
             if (rt.isDone()) {
-                saveButton.setEnabled(true);
-                stopButton.setEnabled(false);
+                doneRecording( rt.getData() );
             }
 
             handler.post(task);
@@ -121,6 +113,20 @@ public class RecordSound extends Activity
 
         }
     };
+
+    private void updateGUI( int frequency, String data )
+    {
+        fv.setText( Integer.toString( frequency ) );
+        tv.setText( data );
+    }
+
+    private void doneRecording( String data )
+    {
+        saveButton.setEnabled(true);
+        stopButton.setEnabled(false);
+
+        tv.setText( data );
+    }
 
     public void stopRecording( View view )
     {
