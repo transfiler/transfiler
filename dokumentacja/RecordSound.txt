@@ -1,0 +1,2 @@
+Aktywnoœæ RecordSound jest zainicjowana, gdy u¿ytkownik naciœnie przycisk "Listen" w aktywnoœci g³ównej MainActivity. Wówczas tworzone i uruchomione s¹ dwa w¹tki: RecorderThread , który odpowiada za nagrywanie i demodulowanie sygna³u; oraz w¹tek odpowiedzialny za aktualizowanie elementów GUI aktywnoœci nazwany w diagramie sekwencji Thread.
+W¹tek Thread komunikuje siê z RecorderThread, pobieraj¹c ostatni¹ zarejestrowan¹ czêstotliwoœæ oraz zdemodulowane dane. Sprawdza równie¿ kiedy RecorderThread koñczy pracê i odblokowuje przycisk zapisu danych do pliku, gdy to nast¹pi.
