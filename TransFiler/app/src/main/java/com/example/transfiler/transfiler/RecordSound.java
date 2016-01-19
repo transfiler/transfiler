@@ -72,7 +72,7 @@ public class RecordSound extends Activity
             int freq = rt.frequency;
             fv.setText( Integer.toString( freq ) );
             String msg = rt.message;
-            tv.setText( msg );
+            tv.setText( msg + " " + Integer.toString( msg.length() ) );
 
             // ile czasu minelo w ms
             long timePassed = System.currentTimeMillis() - startTime;

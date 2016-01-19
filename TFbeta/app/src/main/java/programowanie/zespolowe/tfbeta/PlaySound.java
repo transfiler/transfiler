@@ -36,9 +36,30 @@ public class PlaySound extends Activity {
 
         Bundle extras = getIntent().getExtras();
 
+        /*
         if( extras != null )
         {
             message = extras.getString( "message" );
+        }
+        */
+
+        String msg = "";
+
+        if( extras != null )
+        {
+            msg = extras.getString( "message" );
+        }
+
+        message = "";
+
+        for( int i = 0; i < msg.length(); i++ )
+        {
+            message += msg.charAt( i );
+
+            if( ( i - 1 ) % 4 == 0 )
+            {
+                message += 'x';
+            }
         }
 
         frequencies = new double[message.length() + 30];
@@ -60,6 +81,10 @@ public class PlaySound extends Activity {
                 frequencies[i] = 1500;
             } else if( message.charAt( i - 10 ) == '0' ){
                 frequencies[i] = 1000;
+            }
+            else if( message.charAt( i - 10 ) == 'x' )
+            {
+                frequencies[ i ] = 1250;
             }
             else
             {

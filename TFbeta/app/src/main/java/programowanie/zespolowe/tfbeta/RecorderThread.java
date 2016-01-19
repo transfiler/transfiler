@@ -36,6 +36,8 @@ class RecorderThread extends Thread
     public static final int HIGHER_PITCH = 1500;
     public static final int LOWER_PITCH = 1000;
 
+    public static final int MEDIUM_PITCH = 1250;
+
     public static final int KEY_FREQ = 750;
 
     // wymagana ilosc identycznych prob
@@ -80,9 +82,6 @@ class RecorderThread extends Thread
 
             //while( recorder.getState() != android.media.AudioRecord.STATE_INITIALIZED );
             //RecordSound.stopButton.setEnabled(true);
-            recorder.startRecording();
-
-            recorder.read( data, 0, bufferSize );
 
             while( !done )
             {
@@ -167,6 +166,18 @@ class RecorderThread extends Thread
                 currentTestSample = 1;
             }
         }
+        else if( isWithinRange( frequency, MEDIUM_PITCH ) )
+        {
+            if( lastFrequency == MEDIUM_PITCH )
+            {
+                currentTestSample++;
+            }
+            else
+            {
+                lastFrequency = MEDIUM_PITCH;
+                currentTestSample = 1;
+            }
+        }
         else
         {
             lastFrequency = 0;
@@ -188,6 +199,8 @@ class RecorderThread extends Thread
                 case KEY_FREQ:
                     //message += 'E';
                     done = true;
+                    break;
+                case MEDIUM_PITCH:
                     break;
                 default:
                     break;
