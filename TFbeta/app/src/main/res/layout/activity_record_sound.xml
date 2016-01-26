@@ -25,28 +25,71 @@
         android:layout_marginTop="50dp"
         android:textSize="24dp" />
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:text="STOP"
-        android:id="@+id/stop_record"
-        android:enabled="true"
-        android:layout_alignParentBottom="true"
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="58dp"
-        android:onClick="stopRecording" />
+        android:src="@drawable/logo"
+        />
 
-    <Button
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:id="@+id/fileNameET"
+        android:layout_centerVertical="true"
+        />
+
+
+
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save File"
-        android:enabled="false"
-        android:id="@+id/save_file"
-        android:layout_above="@+id/stop_record"
-        android:layout_alignRight="@+id/stop_record"
-        android:layout_alignEnd="@+id/stop_record"
-        android:layout_marginBottom="33dp"
-        android:layout_alignLeft="@+id/stop_record"
-        android:layout_alignStart="@+id/stop_record"
-        android:onClick="onClickSave" />
+        android:id="@+id/backListen"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/back"
+        android:scaleType="fitCenter"
+        android:onClick="backListening"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/save"
+        android:layout_above="@+id/backListen"
+        android:layout_toLeftOf="@+id/dummy"
+        android:id="@+id/save"
+        android:onClick="onClickSave"
+        android:scaleType="fitCenter"
+        />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/stop"
+        android:id="@+id/stop"
+        android:layout_above="@+id/backListen"
+        android:layout_toRightOf="@+id/dummy"
+        android:scaleType="fitCenter"
+        android:onClick="stopRecording"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/backListen"
+        android:id="@+id/dummy"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="File name"
+        android:layout_above="@id/fileNameET"
+        />
+
+
+
 </RelativeLayout>

@@ -8,6 +8,8 @@ import android.media.AudioTrack;
 import android.os.Handler;
 import android.os.Bundle;
 
+import java.util.zip.CRC32;
+
 public class PlaySound extends Activity {
 
     String message = "1101011E";
@@ -50,6 +52,24 @@ public class PlaySound extends Activity {
             msg = extras.getString( "message" );
         }
 
+        // ################ CRC ################
+        CRC32 crc = new CRC32();
+        crc.update( msg.getBytes() );
+
+        long hash = crc.getValue();
+
+        String strhash = "";
+
+        // Konwersja long hash na binarny String
+        for( int i = 64 - 1; i >= 0; i-- )
+        {
+            strhash += ( ( hash >> i ) & 1 ) == 1 ? '1' : '0';
+        }
+
+        // hash na koniec
+        msg += strhash;
+
+        // Znaki specjalne
         message = "";
 
         for( int i = 0; i < msg.length(); i++ )
@@ -61,6 +81,8 @@ public class PlaySound extends Activity {
                 message += 'x';
             }
         }
+
+        message += 'E';
 
         frequencies = new double[message.length() + 30];
 

@@ -64,24 +64,12 @@ public class MainActivity extends Activity {
     }
 
     private void hideMenuShowSending(){
-        pickButton.setVisibility(View.GONE);
-        listenButton.setVisibility(View.GONE);
-        backSend.setVisibility(View.VISIBLE);
-        fileName.setVisibility(View.VISIBLE);
-        sendButton.setVisibility(View.VISIBLE);
+        Intent intent = new Intent( MainActivity.this, PlaySound.class );
+        intent.putExtra( "message", FileBrowserActivity.binary );
+
+        MainActivity.this.startActivity(intent);
     }
 
-    private void hideSendingShowMenu(){
-        pickButton.setVisibility(View.VISIBLE);
-        listenButton.setVisibility(View.VISIBLE);
-        backSend.setVisibility(View.GONE);
-        fileName.setVisibility(View.GONE);
-        sendButton.setVisibility(View.GONE);
-    }
-
-    public  void backSending(View v){
-        hideSendingShowMenu();
-    }
 
 
     public void pickFile(View v){
@@ -107,7 +95,9 @@ public class MainActivity extends Activity {
         // TODO Auto-generated method stub
         if (requestCode == 1) {
             if(resultCode == this.RESULT_OK) {
-                String newDir = data.getStringExtra(programowanie.zespolowe.tfbeta.FileBrowserActivity.returnFileParameter);
+                String path = data.getStringExtra(programowanie.zespolowe.tfbeta.FileBrowserActivity.returnFileParameter);
+                String fileNameString = path.substring(path.lastIndexOf("/") + 1, path.length());
+                fileName.setText(fileNameString);
                 hideMenuShowSending();
 
             }
